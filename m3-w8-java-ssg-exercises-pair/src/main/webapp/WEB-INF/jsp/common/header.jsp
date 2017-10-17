@@ -10,6 +10,7 @@
 </head>
 
 <body>
+	
     <header>
     		<c:url value="/" var="homePageHref" />
     		<c:url value="/img/ssg_logo.png" var="logoSrc" />
@@ -28,9 +29,15 @@
         	<c:url value="/alienAge" var="alienAgePageHref" />
     		<c:url value="/alienWeightInput" var="alienWeightPageHref" />
     		<c:url value="/alienTravel" var="alienTravelPageHref" />
+    		<c:url value="/submitPostInput" var="spaceForum" />
     		
             <li><a href="${alienAgePageHref}">Alien Age</a></li>
             <li><a href="${alienWeightPageHref}">Alien Weight</a></li>
-            <li><a href="${alienTravelPageHref}">Drive Time</a></li>               
+            <li><a href="${alienTravelPageHref}">Alien Travel Time</a></li>  
+             <li><a href="${spaceForum}">Space Forum</a></li>      
+            <li><a href="#">Space Store</a></li>                  
         </ul>
     </nav>
+    
+<section class=  "centeredPanel">
+<h1><c:out value="${pageHeader }"/></h1>

@@ -215,3 +215,24 @@ section.centeredPanel {
     padding: 10px;
     margin-bottom: 10px;
 }
+
+h1{
+	text-align: center;
+}
+
+.input-post{
+	text-align: center;
+}
+
+.post-body{
+	background-color: white;
+}
+
+.post-container>div:nth-child(even){
+	background-color: grey;
+}
+
+.footer{
+	color: white;
+	text-align: center;
+}

@@ -1,5 +1,6 @@
 package com.techelevator.ssg.model.forum;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,6 +41,7 @@ public class JdbcForumDao implements ForumDao {
 	@Override
 	public void save(ForumPost post) {
 		Long id = getNextId();
+		post.setDatePosted(LocalDateTime.now());
 		String sqlInsertPost = "INSERT INTO forum_post(id, username, subject, message, post_date) VALUES (?,?,?,?,?)";
 		jdbcTemplate.update(sqlInsertPost, id, post.getUsername(), post.getSubject(), post.getMessage(), post.getDatePosted());
 		post.setId(id);

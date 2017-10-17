@@ -41,7 +41,7 @@
     	 to connect to a database -->
 	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
 		<property name="driverClassName" value="org.postgresql.Driver" />
-		<property name="url" value="jdbc:postgresql://localhost:5432/ssgeek" />
+		<property name="url" value="jdbc:postgresql://localhost:5432/ssgeek.sql" />
 		<property name="username" value="postgres" />
 		<property name="password" value="postgres1" />
 	</bean>

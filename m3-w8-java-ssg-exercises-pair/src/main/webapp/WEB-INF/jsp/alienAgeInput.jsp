@@ -1,8 +1,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
+
+<c:set var="pageHeader" value="Alien Age Calculator"/>
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
 
 <c:url var="formAction" value="/alienAgeResult" />
+
 <form method= "GET" action="${formAction}">
 	<div class="formInputGroup">
 		<label for="planet">Choose Planet:</label>
@@ -23,7 +26,11 @@
 		<label for="age">Enter Age:</label>
 		<input type= "text" name="age" id="age"/>
 	</div>
+	<div class="formInputGroup">
+		<label></label>
 	<input class="formSubmitButton" type="submit" value="Calculate Age" />
+	</div>
 </form>
+
  
 <%@include file="common/footer.jsp" %>

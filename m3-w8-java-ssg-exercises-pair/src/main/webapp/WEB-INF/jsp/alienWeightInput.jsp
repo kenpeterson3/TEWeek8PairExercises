@@ -1,5 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
+<c:set var="pageHeader" value="Alien Weight Calculator"/>
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
 
 <c:url var="formAction" value="/alienWeightResults" />
@@ -23,7 +24,10 @@
 		<label for="weight">Enter Weight:</label>
 		<input type= "text" name="weight" id="weight"/>
 	</div>
+	<div class="formInputGroup">
+		<label></label>
 	<input class="formSubmitButton" type="submit" value="Calculate Weight" />
+	</div>
 </form>
  
 <%@include file="common/footer.jsp" %>
