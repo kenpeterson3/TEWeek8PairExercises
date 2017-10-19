@@ -3,10 +3,6 @@
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
 
 <section class="centeredPanel">
-	<h1><strong>Solar System Geek Forum</strong></h1>
-	<c:url var="postInputPage" value="/submitPostInput"/>
-	<div class="input-post"><a href="${postInputPage} ">Post a Message</a></div>
-	
 	<table>
 		<tr>
 			<th>&nbsp;</th>
@@ -19,9 +15,10 @@
 		<c:forEach items="${productList}" var="entry">
 		<c:set var="product" value="${entry.key}"></c:set>
 		<c:set var="quantity" value="${entry.value}"></c:set>
-			<tr class="productContainer">
+			<tr>
 				
-				<td><c:out value="${entry.key.imageName}"></c:out></td>
+				<c:url var="planetImageUrl" value="/img/${entry.key.imageName}"/>
+				<td><img class="productImageDetail" src="${planetImageUrl}"/></td>
 				<td><c:out value="${entry.key.name}"></c:out></td>
 				<td><c:out value="${entry.key.price}"></c:out></td>
 				<td><c:out value="${quantity}"></c:out></td>
@@ -33,6 +30,7 @@
 			
 		</c:forEach>
 	</table>
+	<p><strong >Total Price: </strong> ${cost}</p>
 </section>
 
 <c:import url="/WEB-INF/jsp/common/footer.jsp" />

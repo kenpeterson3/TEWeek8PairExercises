@@ -164,16 +164,6 @@ input[type=text], input[type=datetime], textarea {
 }
 
 
-table tr:first-child {
-    padding-bottom: 10px;
-    font-size: 1.1em;
-}
-
-table td {
-    min-width: 75px;
-    padding: 5px 5px;
-}
-
 
 
 section.centeredPanel {

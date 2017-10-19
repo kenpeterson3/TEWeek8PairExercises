@@ -1,6 +1,7 @@
 package com.techelevator.ssg.controller;
 
 
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -66,14 +67,24 @@ public class AlienStoreController {
 		
 		Map<Product, Integer> productList = new HashMap<>();
 		ShoppingCart sc = (ShoppingCart) session.getAttribute("shoppingCart");
+		BigDecimal cost=new BigDecimal("1");
+		
 		if(sc != null) {
 			Map<Long, Integer> shoppingCartProducts = sc.getAllProducts();
 			for(Long productId : shoppingCartProducts.keySet()) {
+				
+				BigDecimal qty=new BigDecimal(shoppingCartProducts.get(productId)+"");
+				
 				Product currentProduct = dao.getProductById(productId);
+				cost = cost.add(currentProduct.getPrice().multiply(qty));
+				
+				
 				productList.put(currentProduct, shoppingCartProducts.get(productId));
+				
 			}	
 		}
 		modelHolder.put("productList", productList);
+		modelHolder.put("cost", cost);
 		
 		
 		

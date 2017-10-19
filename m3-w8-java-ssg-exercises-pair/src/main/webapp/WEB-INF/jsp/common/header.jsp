@@ -30,12 +30,13 @@
     		<c:url value="/alienWeightInput" var="alienWeightPageHref" />
     		<c:url value="/alienTravel" var="alienTravelPageHref" />
     		<c:url value="/submitPostInput" var="spaceForum" />
+    		<c:url value="/shoppingCart/index" var="spaceStore" />
     		
             <li><a href="${alienAgePageHref}">Alien Age</a></li>
             <li><a href="${alienWeightPageHref}">Alien Weight</a></li>
             <li><a href="${alienTravelPageHref}">Alien Travel Time</a></li>  
              <li><a href="${spaceForum}">Space Forum</a></li>      
-            <li><a href="#">Space Store</a></li>                  
+            <li><a href="${spaceStore}">Space Store</a></li>                  
         </ul>
     </nav>
     
