@@ -188,6 +188,7 @@ section.centeredPanel {
     background-color: #FFF;
     border-radius: 7px;
     margin: 20px auto;
+    overflow: auto;
 }
 
     section.centeredPanel h2 {
@@ -236,3 +237,41 @@ h1{
 	color: white;
 	text-align: center;
 }
+.productImage{
+	float: left;
+	width: 100px;
+	height: 100px;
+	
+	margin-bottom: 50px;
+}
+
+.productImageDetail{
+	width: 200px;
+	height: 200px;
+}
+
+.productDetail{
+	float: left;
+	width: 65%;
+	vertical-align: top;
+}
+
+.productName{
+	margin-top: 0;
+}
+.productContainer{
+	clear: left;
+	display: block;
+	
+}
+
+.productName{
+	font-weight: bold;
+}
+
+.productPrice{
+	color: blue;
+}
+
+
+
