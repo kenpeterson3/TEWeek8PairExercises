@@ -1,7 +1,9 @@
 package com.techelevator.ssg.controller;
 
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.techelevator.ssg.model.store.Product;
 import com.techelevator.ssg.model.store.ProductDao;
+import com.techelevator.ssg.model.store.ShoppingCart;
 
 
 @Controller
@@ -44,22 +47,35 @@ public class AlienStoreController {
 	}
 	
 	@RequestMapping(path="/detail/{id}", method=RequestMethod.POST)
-	public String processProductPurchase(@RequestParam int quantity,@PathVariable Long id, ModelMap mapHolder, HttpSession session) {
+	public String processProductPurchase(@RequestParam int quantity,@PathVariable Long id, HttpSession session) {
 		Product current = dao.getProductById(id);
-		session.setAttribute("userProduct"+id, current);
 		
 		
+		if(session.getAttribute( "shoppingCart") == null) {
+			session.setAttribute("shoppingCart", new ShoppingCart());
+		}
+		ShoppingCart sc = (ShoppingCart) session.getAttribute("shoppingCart");
 		
-		return "redirect: /shoppingCart/view";
+		sc.addProduct(id, quantity);
+		
+		return "redirect:/shoppingCart/view";
 	}
 	
 	@RequestMapping(path="/view", method=RequestMethod.GET)
-	public String showPurchaseProducts(@RequestParam int quantity, HttpSession session) {
+	public String showPurchaseProducts(HttpSession session, ModelMap modelHolder) {
+		
+		Map<Product, Integer> productList = new HashMap<>();
+		ShoppingCart sc = (ShoppingCart) session.getAttribute("shoppingCart");
+		if(sc != null) {
+			Map<Long, Integer> shoppingCartProducts = sc.getAllProducts();
+			for(Long productId : shoppingCartProducts.keySet()) {
+				Product currentProduct = dao.getProductById(productId);
+				productList.put(currentProduct, shoppingCartProducts.get(productId));
+			}	
+		}
+		modelHolder.put("productList", productList);
 		
 		
-		session.getAttribute("userProduct");
-		Product current = dao.getProductById(id);
-		mapHolder.put("product", current);
 		
 		
 		return "/shoppingCart/view";

@@ -9,34 +9,30 @@
 	
 	<table>
 		<tr>
-			<th></th>
+			<th>&nbsp;</th>
 			<th><strong>Name</strong></th>
 			<th><strong>Price</strong><th>
 			<th><strong>Qty.</strong></th>
 			<th><strong>Total</strong></th>
 		</tr>
 		
-		<c:forEach items="${products}" var="product">
+		<c:forEach items="${productList}" var="entry">
+		<c:set var="product" value="${entry.key}"></c:set>
+		<c:set var="quantity" value="${entry.value}"></c:set>
 			<tr class="productContainer">
 				
-				<th>
-					<c:url var="productImage" value="/img/${product.imageName}"/>
-				</th>
+				<td><c:out value="${entry.key.imageName}"></c:out></td>
+				<td><c:out value="${entry.key.name}"></c:out></td>
+				<td><c:out value="${entry.key.price}"></c:out></td>
+				<td><c:out value="${quantity}"></c:out></td>
+				<td><c:out value="${product.price * quantity}"></c:out></td>
+			
+			</tr>
 				
-				
-				
-				<tr class="productDetail">
-					<c:out value="${product.name}"/>
-				</tr>
-				<tr>
-					<c:out value="${product.price}"/>
-				</tr>
-				<tr>
-					<c:out value="${number}"/>
-				</tr>
+			
 			
 		</c:forEach>
 	</table>
 </section>
 
-<%@include file="common/footer.jsp" %>
+<c:import url="/WEB-INF/jsp/common/footer.jsp" />

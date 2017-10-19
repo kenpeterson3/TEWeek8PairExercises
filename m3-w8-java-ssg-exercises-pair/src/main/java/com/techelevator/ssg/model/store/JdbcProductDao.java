@@ -56,8 +56,8 @@ public class JdbcProductDao implements ProductDao {
 		product.setId(row.getLong("product_id"));
 		product.setName(row.getString("name"));
 		product.setDescription(row.getString("description"));
-		DollarAmount price = new DollarAmount((int)(row.getDouble("price")*100));
-		product.setPrice(price);
+		
+		product.setPrice(row.getBigDecimal("price"));
 		product.setImageName(row.getString("image_name"));
 		return product;
 	}

@@ -1,11 +1,13 @@
 package com.techelevator.ssg.model.store;
 
+import java.math.BigDecimal;
+
 public class Product {
 
 	private Long id;
 	private String name;
 	private String description;
-	private DollarAmount price;
+	private BigDecimal price;
 	private String imageName;
 	
 	public Long getId() {
@@ -26,10 +28,10 @@ public class Product {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public DollarAmount getPrice() {
+	public BigDecimal getPrice() {
 		return price;
 	}
-	public void setPrice(DollarAmount price) {
+	public void setPrice(BigDecimal price) {
 		this.price = price;
 	}
 	public String getImageName() {

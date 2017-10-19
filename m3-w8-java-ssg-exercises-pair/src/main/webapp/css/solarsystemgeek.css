@@ -163,9 +163,6 @@ input[type=text], input[type=datetime], textarea {
     width: 300px;
 }
 
-th, td {
-    color: white;
-}
 
 table tr:first-child {
     padding-bottom: 10px;

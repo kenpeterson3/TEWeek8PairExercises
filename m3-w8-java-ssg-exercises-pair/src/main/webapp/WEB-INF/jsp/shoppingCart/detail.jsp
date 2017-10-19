@@ -15,11 +15,12 @@
 						<p class="productDescription" ><c:out value="${product.description}"/></p>
 					</div>
 					
-					<c:url var="addressInputUrl" value="/shoppingCart/view" />
+					<c:url var="addressInputUrl" value="/shoppingCart/detail/${product.id }" />
 					<form method="POST" action="${addressInputUrl}">
 							<div class="formInputGroup">
 								<label for="Quantity">Quantity: </label> 
 								<input type="number" name="quantity" id="quantity" />
+								<input type="hidden" name="productId" value="${product.id}" />
 							</div>
 							<div class="formInputGroup">
 								<label></label>
